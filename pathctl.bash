@@ -51,6 +51,9 @@ B<pathctl.bash> - Utility for PATH management
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin
 
+    # show verbose messages
+    PATHCTL_VERBOSE=1
+
 =head1 DESCRIPTION
 
 Add functions to manage PATH variable.
@@ -58,6 +61,12 @@ Add functions to manage PATH variable.
 =head1 AUTHORS
 
 YASUTAKE Kiyoshi E<lt>yasutake.kiyoshi@gmail.comE<gt>
+
+=head1 LICENSE
+
+The MIT License (MIT)
+
+Copyright (c) 2016 YASUTAKE Kiyoshi
 
 =cut
 
