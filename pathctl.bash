@@ -59,6 +59,14 @@ pathctl_push() {
   fi
 }
 
+pathctl_pop() {
+  PATH=${PATH%:*}
+}
+
+pathctl_shift() {
+  PATH=${PATH#*:}
+}
+
 : <<'__EOF__'
 
 =encoding utf8
@@ -73,6 +81,8 @@ B<pathctl.bash> - Utility for PATH management
     source pathctl.bash
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin
+    pathctl_pop     # removes last entry
+    pathctl_shift   # removes first entry
 
     # show verbose messages
     PATHCTL_VERBOSE=1
