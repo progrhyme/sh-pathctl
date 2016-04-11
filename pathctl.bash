@@ -1,8 +1,16 @@
 #!bash
 
+PATHCTL_VERBOSE=""
+
 # Vars for check and test
 __pathctl_changed=""
 __pathctl_contains=""
+
+_pathctl_verbose() {
+  if [[ $PATHCTL_VERBOSE ]]; then
+    echo "$@"
+  fi
+}
 
 _pathctl_check_contain() {
   local target=$1
@@ -14,6 +22,11 @@ _pathctl_check_contain() {
       break
     fi
   done
+  if [[ $__pathctl_contains ]]; then
+    _pathctl_verbose "\$PATH contains '$target'"
+  else
+    _pathctl_verbose "\$PATH doesn't contain '$target'"
+  fi
 }
 
 pathctl_unshift() {
@@ -24,6 +37,11 @@ pathctl_unshift() {
     PATH=$path:$PATH
     __pathctl_changed="true"
   fi
+  if [[ $__pathctl_changed ]]; then
+    _pathctl_verbose "unshift '$path' to \$PATH"
+  else
+    _pathctl_verbose "Do nothing"
+  fi
 }
 
 pathctl_push() {
@@ -33,6 +51,11 @@ pathctl_push() {
   if [[ -z $__pathctl_contains ]]; then
     PATH=$PATH:$path
     __pathctl_changed="true"
+  fi
+  if [[ $__pathctl_changed ]]; then
+    _pathctl_verbose "push '$path' to \$PATH"
+  else
+    _pathctl_verbose "Do nothing"
   fi
 }
 
