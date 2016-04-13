@@ -15,13 +15,13 @@ _pathctl_verbose() {
 _pathctl_check_contain() {
   local target=$1
   __pathctl_contains=""
-  local _path
-  for _path in `echo $PATH | tr -s ':' ' '`; do
-    if [[ $_path == $target ]]; then
+  case ":${PATH}:" in
+    *:"${target}":*)
       __pathctl_contains="true"
-      break
-    fi
-  done
+      ;;
+    *)
+      ;;
+  esac
   if [[ $__pathctl_contains ]]; then
     _pathctl_verbose "\$PATH contains '$target'"
   else
