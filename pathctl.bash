@@ -37,30 +37,30 @@ pathctl_show() {
 }
 
 pathctl_unshift() {
-  local path=$1
+  local _path=$1
   __pathctl_changed=""
-  _pathctl_check_contain $path
+  _pathctl_check_contain $_path
   if [[ -z $__pathctl_contains ]]; then
-    PATH=$path:$PATH
+    PATH=$_path:$PATH
     __pathctl_changed="true"
   fi
   if [[ $__pathctl_changed ]]; then
-    _pathctl_verbose "unshift '$path' to \$PATH"
+    _pathctl_verbose "unshift '$_path' to \$PATH"
   else
     _pathctl_verbose "Do nothing"
   fi
 }
 
 pathctl_push() {
-  local path=$1
+  local _path=$1
   __pathctl_changed=""
-  _pathctl_check_contain $path
+  _pathctl_check_contain $_path
   if [[ -z $__pathctl_contains ]]; then
-    PATH=$PATH:$path
+    PATH=$PATH:$_path
     __pathctl_changed="true"
   fi
   if [[ $__pathctl_changed ]]; then
-    _pathctl_verbose "push '$path' to \$PATH"
+    _pathctl_verbose "push '$_path' to \$PATH"
   else
     _pathctl_verbose "Do nothing"
   fi
