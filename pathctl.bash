@@ -29,6 +29,13 @@ _pathctl_check_contain() {
   fi
 }
 
+pathctl_show() {
+  local ifs=$IFS
+  IFS=":"
+  printf "%s\n" $PATH
+  IFS=$ifs
+}
+
 pathctl_unshift() {
   local path=$1
   __pathctl_changed=""
@@ -79,6 +86,7 @@ B<pathctl.bash> - Utility for PATH management
 
     #!bash
     source pathctl.bash
+    pathctl_show    # show each entry per line
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin
     pathctl_pop     # removes last entry

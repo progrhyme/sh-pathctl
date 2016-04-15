@@ -6,6 +6,7 @@
 
     #!bash
     source pathctl.bash
+    pathctl_show    # show each entry per line
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin
     pathctl_pop     # removes last entry
