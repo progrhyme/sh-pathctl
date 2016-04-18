@@ -31,10 +31,10 @@ _pathctl_check_contain() {
 }
 
 pathctl_show() {
-  local ifs=$IFS
-  IFS=":"
-  printf "%s\n" $PATH
-  IFS=$ifs
+  local _path
+  for _path in $(echo $PATH | tr ':' ' '); do
+    echo $_path
+  done
 }
 
 pathctl_unshift() {
