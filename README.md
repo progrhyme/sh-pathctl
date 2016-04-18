@@ -12,6 +12,9 @@
     pathctl_pop     # removes last entry
     pathctl_shift   # removes first entry
 
+    # remove duplicates in PATH
+    pathctl_uniq
+
     # show verbose messages
     PATHCTL_VERBOSE=1
 
