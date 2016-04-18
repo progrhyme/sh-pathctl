@@ -75,6 +75,23 @@ pathctl_shift() {
   PATH=${PATH#*:}
 }
 
+pathctl_uniq() {
+  local _hash _p _path
+  declare -A _hash
+  for _p in $(echo $PATH | tr ':' ' '); do
+    if [[ ${_hash[$_p]} ]]; then
+      continue
+    fi
+    _hash[$_p]=1
+    if [[ $_path ]]; then
+      _path="$_path:$_p"
+    else
+      _path=$_p
+    fi
+  done
+  PATH=$_path
+}
+
 : <<'__EOF__'
 
 =encoding utf8
@@ -92,6 +109,9 @@ B<pathctl.bash> - Utility for PATH management
     pathctl_unshift /path/to/your-bin
     pathctl_pop     # removes last entry
     pathctl_shift   # removes first entry
+
+    # remove duplicates in PATH
+    pathctl_uniq
 
     # show verbose messages
     PATHCTL_VERBOSE=1
