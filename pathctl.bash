@@ -1,7 +1,7 @@
 #!bash
 
 PATHCTL_VERBOSE=""
-PATHCTL_VERSION="0.9.1"
+PATHCTL_VERSION="0.9.2"
 
 # Vars for check and test
 __pathctl_changed=""
