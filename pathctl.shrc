@@ -6,7 +6,7 @@ __pathctl_changed=""
 __pathctl_contains=""
 
 _pathctl_verbose() {
-  if [[ $PATHCTL_VERBOSE ]]; then
+  if [ "$PATHCTL_VERBOSE" ]; then
     echo "$@"
   fi
 }
@@ -21,7 +21,7 @@ _pathctl_check_contain() {
     *)
       ;;
   esac
-  if [[ $__pathctl_contains ]]; then
+  if [ "$__pathctl_contains" ]; then
     _pathctl_verbose "\$PATH contains '$target'"
   else
     _pathctl_verbose "\$PATH doesn't contain '$target'"
@@ -39,11 +39,11 @@ pathctl_unshift() {
   local _path=$1
   __pathctl_changed=""
   _pathctl_check_contain $_path
-  if [[ -z $__pathctl_contains ]]; then
+  if [ -z "$__pathctl_contains" ]; then
     PATH=$_path:$PATH
     __pathctl_changed="true"
   fi
-  if [[ $__pathctl_changed ]]; then
+  if [ "$__pathctl_changed" ]; then
     _pathctl_verbose "unshift '$_path' to \$PATH"
   else
     _pathctl_verbose "Do nothing"
@@ -60,11 +60,11 @@ pathctl_push() {
   local _path=$1
   __pathctl_changed=""
   _pathctl_check_contain $_path
-  if [[ -z $__pathctl_contains ]]; then
+  if [ -z "$__pathctl_contains" ]; then
     PATH=$PATH:$_path
     __pathctl_changed="true"
   fi
-  if [[ $__pathctl_changed ]]; then
+  if [ "$__pathctl_changed" ]; then
     _pathctl_verbose "push '$_path' to \$PATH"
   else
     _pathctl_verbose "Do nothing"
@@ -75,10 +75,10 @@ pathctl_push_f() {
   local _tgt=$1
   local _path
   for _p in $(echo $PATH | tr ':' ' '); do
-    if [[ $_p = $_tgt ]]; then
+    if [ "$_p" = "$_tgt" ]; then
       continue
     fi
-    if [[ $_path ]]; then
+    if [ "$_path" ]; then
       _path="$_path:$_p"
     else
       _path=$_p
@@ -96,18 +96,19 @@ pathctl_shift() {
 }
 
 pathctl_uniq() {
-  local _hash _p _path
-  declare -A _hash
+  local _p _path
   for _p in $(echo $PATH | tr ':' ' '); do
-    if [[ ${_hash[$_p]} ]]; then
-      continue
-    fi
-    _hash[$_p]=1
-    if [[ $_path ]]; then
-      _path="$_path:$_p"
-    else
-      _path=$_p
-    fi
+    case ":${_path}:" in
+      *:"${_p}":* )
+        ;;
+      * )
+        if [ "$_path" ]; then
+          _path="$_path:$_p"
+        else
+          _path=$_p
+        fi
+        ;;
+    esac
   done
   PATH=$_path
 }

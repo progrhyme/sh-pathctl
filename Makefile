@@ -1,7 +1,7 @@
 .PHONY: doc test release
 
 VERSION := $(shell . pathctl.shrc && echo $${PATHCTL_VERSION})
-SHELLS  := /usr/local/bin/bash /bin/zsh
+SHELLS  := /bin/bash /usr/local/bin/bash /bin/zsh /bin/sh dash
 
 doc: README.md
 	pod2markdown pathctl.shrc > README.md
