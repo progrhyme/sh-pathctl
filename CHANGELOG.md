@@ -1,3 +1,10 @@
+## 0.9.3 (2016/4/20)
+
+Feature:
+
+- `pathctl_unshift_f <target>`: always insert target at the first position in PATH
+- `pathctl_push_f <target>`: always append target at the last position in PATH
+
 ## 0.9.2 (2016/4/19)
 
 Feature:
