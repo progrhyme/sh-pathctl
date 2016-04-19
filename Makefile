@@ -1,15 +1,16 @@
 .PHONY: doc test release
 
-VERSION := $(shell . pathctl.bash && echo $${PATHCTL_VERSION})
+VERSION := $(shell . pathctl.shrc && echo $${PATHCTL_VERSION})
 SHELLS  := /usr/local/bin/bash /bin/zsh
 
 doc: README.md
-	pod2markdown pathctl.bash > README.md
+	pod2markdown pathctl.shrc > README.md
 
 test:
 	bats test/
 	@for sh in $(SHELLS); do \
-		( shove t/uniq.t -s $$sh ) \
+		shove t/uniq.t -s $$sh; \
+		shove t/force_push_or_unshift.t -s $$sh; \
 	done
 
 release:

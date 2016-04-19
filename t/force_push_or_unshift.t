@@ -1,4 +1,4 @@
-. ./pathctl.bash
+. ./pathctl.shrc
 
 : "pathctl_unshift_f" && {
   PATH=/usr/local/bin:/usr/bin:/bin

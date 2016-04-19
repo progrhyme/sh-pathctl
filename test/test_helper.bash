@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source ./pathctl.bash
+. ./pathctl.shrc
 

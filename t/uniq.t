@@ -1,4 +1,4 @@
-. ./pathctl.bash
+. ./pathctl.shrc
 
 : "pathctl_uniq" && {
   : "pathctl_uniq makes no change if PATH is already unique" && {

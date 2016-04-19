@@ -1,5 +1,5 @@
 PATHCTL_VERBOSE=""
-PATHCTL_VERSION="0.9.3"
+PATHCTL_VERSION="1.0.0"
 
 # Vars for check and test
 __pathctl_changed=""
@@ -118,12 +118,12 @@ pathctl_uniq() {
 
 =head1 NAME
 
-B<pathctl.bash> - Utility for PATH management
+B<pathctl.shrc> - Shell utility for PATH management
 
 =head1 SYNOPSYS
 
     #!bash or zsh
-    source pathctl.bash
+    . pathctl.shrc
     pathctl_show    # show each entry per line
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin

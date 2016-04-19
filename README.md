@@ -1,11 +1,11 @@
 # NAME
 
-**pathctl.bash** - Utility for PATH management
+**pathctl.shrc** - Shell utility for PATH management
 
 # SYNOPSYS
 
     #!bash or zsh
-    source pathctl.bash
+    . pathctl.shrc
     pathctl_show    # show each entry per line
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin

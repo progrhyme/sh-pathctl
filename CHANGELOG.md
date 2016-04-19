@@ -1,4 +1,10 @@
-## 0.9.3 (2016/4/20)
+## 1.0.0 (2016/4/19)
+
+Change:
+
+- Re-release as `sh-pathctl` and rename `pathctl.bash` to `pathctl.shrc`.
+
+## 0.9.3 (2016/4/19)
 
 Feature:
 
