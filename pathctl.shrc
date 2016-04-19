@@ -150,16 +150,6 @@ Add functions to manage PATH variable.
 
 Bash or Zsh.
 
-Following function uses associated array which was introduced in Bash v4:
-
-=over 4
-
-=item pathctl_uniq
-
-=item pathctl_unshift_f
-
-=back
-
 =head1 AUTHORS
 
 YASUTAKE Kiyoshi E<lt>yasutake.kiyoshi@gmail.comE<gt>

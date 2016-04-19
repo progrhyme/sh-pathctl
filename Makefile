@@ -2,15 +2,16 @@
 
 VERSION := $(shell . pathctl.shrc && echo $${PATHCTL_VERSION})
 SHELLS  := /bin/bash /usr/local/bin/bash /bin/zsh /bin/sh dash
+TESTS   := t/push_or_unshift.t t/uniq.t t/force_push_or_unshift.t
 
 doc: README.md
 	pod2markdown pathctl.shrc > README.md
 
 test:
-	bats test/
 	@for sh in $(SHELLS); do \
-		shove t/uniq.t -s $$sh; \
-		shove t/force_push_or_unshift.t -s $$sh; \
+		for t in $(TESTS); do \
+			shove $$t -s $$sh; \
+		done \
 	done
 
 release:

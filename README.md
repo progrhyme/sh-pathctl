@@ -31,11 +31,6 @@ Add functions to manage PATH variable.
 
 Bash or Zsh.
 
-Following function uses associated array which was introduced in Bash v4:
-
-- pathctl\_uniq
-- pathctl\_unshift\_f
-
 # AUTHORS
 
 YASUTAKE Kiyoshi <yasutake.kiyoshi@gmail.com>
