@@ -74,9 +74,19 @@ pathctl_push() {
 }
 
 pathctl_push_f() {
-  local _path=$1
-  PATH=$PATH:$_path
-  pathctl_uniq
+  local _tgt=$1
+  local _path
+  for _p in $(echo $PATH | tr ':' ' '); do
+    if [[ $_p = $_tgt ]]; then
+      continue
+    fi
+    if [[ $_path ]]; then
+      _path="$_path:$_p"
+    else
+      _path=$_p
+    fi
+  done
+  PATH="$_path:$_tgt"
 }
 
 pathctl_pop() {
