@@ -52,6 +52,12 @@ pathctl_unshift() {
   fi
 }
 
+pathctl_unshift_f() {
+  local _path=$1
+  PATH=$_path:$PATH
+  pathctl_uniq
+}
+
 pathctl_push() {
   local _path=$1
   __pathctl_changed=""
@@ -65,6 +71,12 @@ pathctl_push() {
   else
     _pathctl_verbose "Do nothing"
   fi
+}
+
+pathctl_push_f() {
+  local _path=$1
+  PATH=$PATH:$_path
+  pathctl_uniq
 }
 
 pathctl_pop() {

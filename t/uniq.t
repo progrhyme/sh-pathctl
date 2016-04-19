@@ -12,3 +12,5 @@
     t_is $PATH "/usr/local/bin:/usr/bin:/bin:a:b"
   }
 }
+
+# vim:set ft=sh :
