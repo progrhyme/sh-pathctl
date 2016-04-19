@@ -1,3 +1,10 @@
+## 1.0.1 (2016/4/20)
+
+Improve:
+
+- Improve portability. Don't use associated hash in `pathctl_uniq`. Use regexp
+  match instead.
+
 ## 1.0.0 (2016/4/19)
 
 Change:
