@@ -1,5 +1,3 @@
-#!bash
-
 PATHCTL_VERBOSE=""
 PATHCTL_VERSION="0.9.2"
 
@@ -124,13 +122,15 @@ B<pathctl.bash> - Utility for PATH management
 
 =head1 SYNOPSYS
 
-    #!bash
+    #!bash or zsh
     source pathctl.bash
     pathctl_show    # show each entry per line
     pathctl_push    /path/to/your-bin
     pathctl_unshift /path/to/your-bin
     pathctl_pop     # removes last entry
     pathctl_shift   # removes first entry
+    pathctl_push_f    /path/to/your-bin # move to last if exists
+    pathctl_unshift_f /path/to/your-bin # move to first if exists
 
     # remove duplicates in PATH
     pathctl_uniq
@@ -141,6 +141,20 @@ B<pathctl.bash> - Utility for PATH management
 =head1 DESCRIPTION
 
 Add functions to manage PATH variable.
+
+=head1 REQUIREMENTS
+
+Bash or Zsh.
+
+Following function uses associated array which was introduced in Bash v4:
+
+=over 4
+
+=item pathctl_uniq
+
+=item pathctl_unshift_f
+
+=back
 
 =head1 AUTHORS
 
