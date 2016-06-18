@@ -33,10 +33,10 @@ Bash or Zsh.
 
 # AUTHORS
 
-YASUTAKE Kiyoshi <yasutake.kiyoshi@gmail.com>
+IKEDA Kiyoshi <yasutake.kiyoshi@gmail.com>
 
 # LICENSE
 
 The MIT License (MIT)
 
-Copyright (c) 2016 YASUTAKE Kiyoshi
+Copyright (c) 2016 IKEDA Kiyoshi
