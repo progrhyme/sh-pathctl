@@ -73,7 +73,7 @@ pathctl_push() {
 
 pathctl_push_f() {
   local _tgt=$1
-  local _path
+  local _path _p
   for _p in $(echo $PATH | tr ':' ' '); do
     if [ "$_p" = "$_tgt" ]; then
       continue
