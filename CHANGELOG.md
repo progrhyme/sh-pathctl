@@ -1,3 +1,9 @@
+## 1.0.2 (2016/6/18)
+
+Minor Fix:
+
+- Localize temporary variable used in `pathctl_push_f` function.
+
 ## 1.0.1 (2016/4/20)
 
 Improve:
